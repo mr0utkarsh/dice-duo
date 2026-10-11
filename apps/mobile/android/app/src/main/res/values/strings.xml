@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DICE DUO</string>
+    <string name="title_activity_main">DICE DUO</string>
+    <string name="package_name">com.diceduo.ludo</string>
+    <string name="custom_url_scheme">com.diceduo.ludo</string>
+</resources>
