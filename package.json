@@ -1,0 +1,27 @@
+{
+  "name": "dice-duo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DICE DUO — Production-minded Android Ludo game with a separate Smart Remote",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm --workspace=@dice-duo/shared run build && npm --workspace=@dice-duo/game-engine run build && npm run build --workspaces --if-present",
+    "dev:server": "npm --workspace=@dice-duo/server run dev",
+    "dev:mobile": "npm --workspace=@dice-duo/mobile run dev",
+    "dev:remote": "npm --workspace=@dice-duo/remote run dev",
+    "typecheck": "npm --workspace=@dice-duo/shared run build && npm --workspace=@dice-duo/game-engine run build && npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

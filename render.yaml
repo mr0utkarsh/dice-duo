@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: dice-duo-server
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm --workspace=@dice-duo/shared run build && npm --workspace=@dice-duo/game-engine run build && npm --workspace=@dice-duo/server run build
+    startCommand: npm --workspace=@dice-duo/server run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
